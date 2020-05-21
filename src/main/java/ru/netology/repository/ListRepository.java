@@ -18,22 +18,34 @@ public class ListRepository {
         return flightLists;
     }
 
-    public FlightList findByAirportsOut(String airportFrom) {
+    public FlightList[] findByAirportsOut(String airportFrom) {
+        FlightList[] result = new FlightList[0];
         for (FlightList flightList : flightLists) {
-            if (airportFrom.equals(flightList.getDepartureAirport())) {
-                return flightList;
+            if (airportFrom.equals(flightList.getDepartureAirport())){
+                int length = result.length + 1;
+                FlightList[] tmp = new FlightList[length];
+                System.arraycopy(result, 0, tmp, 0, result.length);
+                int lastIndex = tmp.length - 1;
+                tmp[lastIndex] = flightList;
+                result = tmp;
             }
         }
-        return null;
+        return result;
     }
 
-    public FlightList findByAirportsIn(String airportTo) {
+    public FlightList[] findByAirportsIn(String airportTo) {
+        FlightList[] result = new FlightList[0];
         for (FlightList flightList : flightLists) {
             if (airportTo.equals(flightList.getArrivalAirport())) {
-                return flightList;
+                int length = result.length + 1;
+                FlightList[] tmp = new FlightList[length];
+                System.arraycopy(result, 0, tmp, 0, result.length);
+                int lastIndex = tmp.length - 1;
+                tmp[lastIndex] = flightList;
+                result = tmp;
             }
         }
-        return null;
+        return result;
     }
 
     public void removeById(int id) {

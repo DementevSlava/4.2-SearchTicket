@@ -44,7 +44,7 @@ class FlightListManagerTest {
     }
 
     @Test
-    void searchAll(){
+    void searchAll() {
         FlightList[] actual = manager.searchAll("MOW", "LED");
         FlightList[] expected = {flightList5, flightList51, flightList52};
         Arrays.sort(actual);
