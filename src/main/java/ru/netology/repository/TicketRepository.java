@@ -18,24 +18,6 @@ public class TicketRepository {
         return tickets;
     }
 
-    public Ticket findByAirportsOut(String airportFrom) {
-        for (Ticket ticket : tickets) {
-            if (ticket.getDepartureAirport() == airportFrom) {
-                return ticket;
-            }
-        }
-        return null;
-    }
-
-    public Ticket findByAirportsIn(String airportTo) {
-        for (Ticket ticket : tickets) {
-            if (ticket.getArrivalAirport() == airportTo) {
-                return ticket;
-            }
-        }
-        return null;
-    }
-
     public void removeById(int id) {
             int length = tickets.length - 1;
             Ticket[] tmp = new Ticket[length];

@@ -1,6 +1,6 @@
 package ru.netology.domain;
 
-public class Ticket implements Comparable{
+public class Ticket implements Comparable<Ticket>{
     private int id;
     private int cost;
     private String departureAirport;
@@ -37,9 +37,8 @@ public class Ticket implements Comparable{
 
 
     @Override
-    public int compareTo(Object o) {
-        Ticket ticket = (Ticket) o;
-        return cost - ticket.cost;
+    public int compareTo(Ticket o) {
+        return cost - o.cost;
     }
 
     @Override
